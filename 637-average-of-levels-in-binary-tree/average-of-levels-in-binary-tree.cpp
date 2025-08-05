@@ -22,12 +22,9 @@ public:
             for(int i=0;i<l;i++){
                 TreeNode* node = qe.front();
                 qe.pop();
+                s+=node->val;
                 if(node->left!=NULL) qe.push(node->left);
                 if(node->right!=NULL) qe.push(node->right);
-                ans.push_back(node->val);
-            }
-            for(auto i:ans){
-                s+=i;
             }
             vec.push_back(s/l);
         }
