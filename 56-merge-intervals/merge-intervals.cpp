@@ -3,12 +3,15 @@ public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
         sort(intervals.begin(),intervals.end());
         vector<vector<int>>merged;
-        for(int i=0;i<intervals.size();i++){
-            if(merged.empty() || intervals[i][0] > merged.back()[1]){
-                merged.push_back(intervals[i]);
+        merged.push_back(intervals[0]);
+        for(int i=1;i<intervals.size();i++){
+            vector<int>& lastinterval = merged.back();
+            vector<int>& currinterval = intervals[i];
+            if(currinterval[0]<=lastinterval[1]){
+                lastinterval[1]=max(currinterval[1],lastinterval[1]);
             }
             else{
-                merged.back()[1]=max(merged.back()[1],intervals[i][1]);
+                merged.push_back(currinterval);
             }
         }
         return merged;
