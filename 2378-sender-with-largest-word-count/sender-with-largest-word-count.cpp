@@ -16,22 +16,12 @@ public:
         for(auto i:mpp){
             mx=max(mx,i.second);
         }
-        vector<string>ans;
+        string ans;
         for(auto i:mpp){
             if(i.second==mx){
-                ans.push_back(i.first);
+                ans=max(ans,i.first);
             }
         }
-        // for(auto i:ans){
-        //     cout<<i<<" ";
-        // }
-        string res;
-        if(ans.size()==1){
-            res=ans[0];
-        }
-        else{
-            res=*max_element(ans.begin(),ans.end());
-        }
-        return res;
+        return ans;
     }
 };
