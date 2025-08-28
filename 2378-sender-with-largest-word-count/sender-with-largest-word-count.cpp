@@ -2,17 +2,16 @@ class Solution {
 public:
     string largestWordCount(vector<string>& messages, vector<string>& senders) {
         map<string,int>mpp;
+        int mx=0;
         for(int i=0;i<messages.size();i++){
-            int c=0;
-            for(int j=0;j<messages[i].size();j++){
-                if(messages[i][j]==' '){
+            int c=1;
+            for(auto ch:messages[i]){
+                if(ch==' '){
                     c++;
                 }
             }
-            c++;
             mpp[senders[i]]+=c;
         }
-        int mx=0;
         for(auto i:mpp){
             mx=max(mx,i.second);
         }
