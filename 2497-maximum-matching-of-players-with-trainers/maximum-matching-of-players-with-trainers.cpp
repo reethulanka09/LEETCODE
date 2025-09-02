@@ -8,11 +8,8 @@ public:
             if(players[i]<=trainers[j]){
                 c++;
                 i++;
-                j++;
             }
-            else{
-                j++;
-            }
+            j++;
         }
         return c;
     }
