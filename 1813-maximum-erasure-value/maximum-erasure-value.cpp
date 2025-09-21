@@ -5,9 +5,8 @@ public:
         int i=0,j=0,m=0,s=0;
         while(j<nums.size()){
             s+=nums[j];
-            mpp[nums[j]]++;
             if(mpp.find(nums[j])!=mpp.end()){
-                while(mpp[nums[j]]>1){
+                while(nums[i]!=nums[j]){
                     s-=nums[i];
                     mpp[nums[i]]--;
                     if(mpp[nums[i]]==0){
@@ -15,7 +14,14 @@ public:
                     }
                     i++;
                 }
+                s-=nums[i];
+                mpp[nums[i]]--;
+                if(mpp[nums[i]]==0){
+                        mpp.erase(nums[i]);
+                    }
+                    i++;
             }
+            mpp[nums[j]]++;
             m=max(m,s);
             j++;
         }
