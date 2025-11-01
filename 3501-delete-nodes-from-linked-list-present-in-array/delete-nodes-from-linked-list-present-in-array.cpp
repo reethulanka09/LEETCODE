@@ -17,9 +17,6 @@ public:
         for(int i=0;i<nums.size();i++){
             mpp[nums[i]]++;
         }
-        for(auto i:mpp){
-            cout<<i.first<<" "<<i.second<<" ";
-        }
         ListNode* dummy = new ListNode(-1);
         ListNode* tail = dummy;
         temp = head;
