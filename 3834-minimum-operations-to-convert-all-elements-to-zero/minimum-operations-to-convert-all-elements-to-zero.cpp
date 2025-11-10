@@ -1,16 +1,21 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums) {
-        vector<int> stack(nums.size() + 1, 0);
-        int top = 0, ans = 0;
-        for (int num : nums) {
-            while (stack[top] > num) {
-                top--;
+        int ans = 0;
+        stack<int> st;
+        for (int x : nums) {
+            while (!st.empty() && st.top() > x) {
+                st.pop();
                 ans++;
             }
-            if (stack[top] != num)
-                stack[++top] = num;
+            if (x > 0 && (st.empty() || st.top() < x)) {
+                st.push(x);
+            }
         }
-        return ans + top;
+        while (!st.empty()) {
+            st.pop();
+            ans++;
+        }
+        return ans;
     }
 };
