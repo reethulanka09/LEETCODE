@@ -1,15 +1,27 @@
 class Solution {
 public:
     int countTriples(int n) {
-        int res = 0;
-        for (int a = 1; a <= n; ++a) {
-            for (int b = 1; b <= n; ++b) {
-                int c = int(sqrt(a * a + b * b + 1.0));
-                if (c <= n && c * c == a * a + b * b) {
-                    ++res;
+        int squares[n+1];
+        int count = 0;
+        int left, right, sum;
+        for (int i = 0; i < n+1; ++i) {
+            squares[i] = i * i;
+            left = 0;
+            right = i - 1;
+            while (left < right) {
+                sum = squares[left] + squares[right];
+                if (sum == squares[i]) {
+                    count += 2;
+                    left++;
+                    continue;
                 }
+                if (sum < squares[i]) {
+                    left++;
+                    continue;
+                }
+                right--;
             }
         }
-        return res;
+        return count;
     }
 };
