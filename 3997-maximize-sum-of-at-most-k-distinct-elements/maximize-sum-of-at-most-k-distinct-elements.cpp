@@ -1,16 +1,20 @@
 class Solution {
 public:
     vector<int> maxKDistinct(vector<int>& nums, int k) {
-        map<int,int>mpp;
+        int n = nums.size();
         sort(nums.begin(),nums.end());
         vector<int>ans;
-        for(int i=nums.size()-1;i>=0;i--){
-            if(mpp.find(nums[i])==mpp.end() and k>0){
+        ans.push_back(nums[n - 1]);
+        k--;
+        for(int i = n - 2 ; i >= 0 ;i--){
+            if(k == 0)
+            break;
+            if(nums[i + 1] != nums[i])
+            {
                 ans.push_back(nums[i]);
                 k--;
             }
-            mpp[nums[i]]++;
         }
-        return ans;
+         return ans;
     }
 };
