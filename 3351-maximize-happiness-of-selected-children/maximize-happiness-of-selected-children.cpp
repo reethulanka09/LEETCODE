@@ -5,9 +5,8 @@ public:
         long long ans =0;
         sort(happiness.begin(),happiness.end());
         for(int i=happiness.size()-1;i>=0;i--){
-            if(k>0){
-            happiness[i]=happiness[i]-(r-k);
-            if(happiness[i]>0) ans+=happiness[i];
+            if(k>0 and happiness[i]-(r-k)>0){
+            ans+=happiness[i]-(r-k);
             k--;
             }
             else {
