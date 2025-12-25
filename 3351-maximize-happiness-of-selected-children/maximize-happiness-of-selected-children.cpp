@@ -10,6 +10,9 @@ public:
             if(happiness[i]>0) ans+=happiness[i];
             k--;
             }
+            else {
+                break;
+            }
         }
         return ans;
     }
