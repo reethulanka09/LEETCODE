@@ -5,7 +5,7 @@ public:
         if(n==0) return 1;
         while(n>0){
             s = char(n % 2 + '0') + s;
-            n=n/2;
+            n= n>>1;
         }
         int ans=0;
         for(int i=s.size()-1;i>=0;i--){
