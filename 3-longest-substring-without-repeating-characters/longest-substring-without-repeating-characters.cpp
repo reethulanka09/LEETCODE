@@ -7,15 +7,14 @@ public:
        while(j<s.size()){
             mpp[s[j]]++;
             if(mpp[s[j]]>1){
-                ans=max(ans,j-i);
                 while(mpp[s[j]]>1){
                     mpp[s[i]]--;
                     i++;
                 }
             }
             j++;
+            ans=max(ans,j-i);
        } 
-       ans=max(ans,j-i);
        return ans;
     }
 };
