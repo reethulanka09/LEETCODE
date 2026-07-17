@@ -5,11 +5,11 @@ public:
         int prefix=1;
         int sufix = 1;
         vector<int>productArray(n,1);
-        for(int i=0;i<nums.size();i++){
+        for(int i=0;i<n;i++){
             productArray[i] = prefix;
             prefix *= nums[i];
         }
-        for(int i=nums.size()-1;i>=0;i--){
+        for(int i=n-1;i>=0;i--){
             productArray[i] *= sufix;
             sufix *= nums[i];
         }
