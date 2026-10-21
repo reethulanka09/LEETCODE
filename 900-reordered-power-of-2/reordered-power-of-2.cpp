@@ -12,7 +12,6 @@ public:
             if(countdigit(power)==target){
                 return true;
             }
-
         }
         return false;
     }
